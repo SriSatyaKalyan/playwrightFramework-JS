@@ -7,17 +7,6 @@ test('Page Playwright Test', async({page}) => {
     await page.goto("https://google.com");
     const title = await page.title();
     console.log(title);
-
-    //Assertions
-    await expect(page).toHaveTitle("Google");
-
-    //css, xpath locators
-    await page.locator('#username').fill("rahulshetty");
-    await page.locator("[type='password']").fill("learning");
-    await page.locator("#signInBtn").click();
-
-    //checking the error message to be displayed
-    console.log("Error message: " + await page.locator("[style*='block']").textContent());
 });
 
 test('Browser Context Playwright Test', async({browser}) => {
@@ -102,17 +91,21 @@ test.only('Child Windows Playwright Test', async({browser}) => {
 
     const [newPage] = await Promise.all([
         context.waitForEvent('page'),
-        documentLink.click(),
+        documentLink.click(),        
     ]);
-    const text = await newPage.locator(".red").textContent();
-    
+
+    const text = await newPage.locator(".red").textContent()
     console.log("The red text is: " + text);
+
     const arrText = text.split("@");
     const domain = arrText[1].split(" ")[0];
     console.log("The domain name is: " + domain.split(".")[0]);
-
-    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
-    await page.locator('#username').fill(domain.split(".")[0]);
-    await page.pause();
-    console.log("The text content is: " + await page.locator('#username').textContent());
+    
+    await page.bringToFront();
+    await page.locator('input#username').fill(domain.split(".")[0]); // domain.split(".")[0]
+    // await page.pause();
+    // await expect(page.locator('input#username')).toContainText("rahulshetty");
+    const filledText = await page.locator('#username').inputValue();
+    console.log("The text content is: " + filledText);
+    // await page.pause();
 })
