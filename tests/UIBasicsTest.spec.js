@@ -78,7 +78,7 @@ test('Browser Context Playwright Test', async({browser}) => {
     console.log(allTitles);
 });
 
-test.only('Child Windows Playwright Test', async({browser}) => {
+test('Child Windows Playwright Test', async({browser}) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
