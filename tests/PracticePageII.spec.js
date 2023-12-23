@@ -18,7 +18,7 @@ test.only('Practice Page II', async({browser}) => {
 
     await page.locator("#confirmbtn").click();
     await page.pause();
-    
+
     //handling popups
     page.on('dialog', dialog => dialog.accept());
     await page.locator("#confirmbtn").click();
@@ -27,5 +27,7 @@ test.only('Practice Page II', async({browser}) => {
     await page.locator("#mousehover").hover();
 
     // await page.pause();
+    //handling frames
+    
 
 })
