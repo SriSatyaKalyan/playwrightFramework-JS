@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('Angular Practice Test Example', async({browser}) => {
+test('Angular Practice Test Example', async({browser}) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
