@@ -25,7 +25,8 @@ test('Playwright Test Example', async({browser}) => {
     const count = await products.count();
 
     console.log(titles + " || " + count);
-
+    page.on('request', request => console.log(request.url()));
+    page.on('response', response => console.log(response.url() + ", " + response.status()));
     
     for(let i = 0; i < count; i++){
         if(await products.nth(i).locator("b").textContent() === productName){
