@@ -1,4 +1,4 @@
-const {test, expect, request} = require('@playwright/test');
+const {test, request} = require('@playwright/test');
 const {APIUtils} = require('./utils/APIUtils');
 
 const loginPayload = {
