@@ -33,7 +33,7 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
     // browserName: 'chromium',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    // trace: 'retain-on-failure',  // 'on-first-retry',
+    trace: 'on',  // 'retain-on-failure', 'on-first-retry',
     // screenshot: 'on'
   },
 
