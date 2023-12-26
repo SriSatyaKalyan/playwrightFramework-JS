@@ -3,6 +3,9 @@ const {test, expect} = require('@playwright/test');
 test('Playwright Test Example', async({browser}) => {
     const context = await browser.newContext();
     const page = await context.newPage();
+
+    // page.route('**/*.css', route => route.abort());
+    page.route('**/*.{jpg, png, jpeg}', route => route.abort());
     
     const productName = "I Phone";
     const products = page.locator(".card-body");

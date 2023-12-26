@@ -66,6 +66,8 @@ test('Browser Context Playwright Test', async({browser}) => {
     // await page.pause();
 
     //handling the blinking text
+    page.on('request', request => console.log(request.url()));
+    page.on('response', response => console.log(response.url() + ", " + response.status()));
     const documentLink = page.locator("[href='https://rahulshettyacademy.com/documents-request']");
     await expect(documentLink).toHaveAttribute("class", "blinkingText");
 
