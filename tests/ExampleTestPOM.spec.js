@@ -1,27 +1,25 @@
 const {test, expect} = require('@playwright/test');
 const {pageObjectManager} = require('../pageObjects/pageObjectManager');
+const data = JSON.parse(JSON.stringify(require('../utils/testData.json')));
 
 test('Playwright Test Example', async({browser}) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    const username = "patyesh123@gmail.com";
-    const password = "Password@123";
-    const productName = "ZARA COAT 3";
-
     const pageObjManager= new pageObjectManager(page);
+
     const logPage = pageObjManager.getLoginPage();
     await logPage.landOnLoginPage();
-    await logPage.validLogin(username, password);
+    await logPage.validLogin(data.username, data.password);
 
     const dashpage = pageObjManager.getDashboardPage();
-    await dashpage.searchProduct(productName);
+    await dashpage.searchProduct(data.productName);
     await dashpage.navigateToCart();
 
     await page.locator("div li").first().waitFor();
     
     //ensuring that the product is present in the cart
-    expect(await page.locator("h3:has-text('ZARA COAT 3')").isVisible()).toBeTruthy();
+    expect(await page.locator("h3:has-text('" + data.productName + "')").isVisible()).toBeTruthy();
 
     await page.locator("text = Checkout").click();
     await page.locator("[placeholder *= 'Country']").pressSequentially("ind", {delay: 100});
