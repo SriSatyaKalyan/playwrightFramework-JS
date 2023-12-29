@@ -1,0 +1,8 @@
+Let's Shop
+ZARA COAT 3,ADIDAS ORIGINAL,IPHONE 13 PRO || 3
+https://rahulshettyacademy.com/api/ecom/user/get-cart-products/6580e5f49fd99c85e8eda179
+https://rahulshettyacademy.com/api/ecom/user/get-cart-count/6580e5f49fd99c85e8eda179
+https://rahulshettyacademy.com/api/ecom/user/get-cart-count/6580e5f49fd99c85e8eda179
+https://rahulshettyacademy.com/api/ecom/user/get-cart-count/6580e5f49fd99c85e8eda179, 200
+https://rahulshettyacademy.com/api/ecom/user/get-cart-count/6580e5f49fd99c85e8eda179, 200
+https://rahulshettyacademy.com/api/ecom/user/get-cart-products/6580e5f49fd99c85e8eda179, 200

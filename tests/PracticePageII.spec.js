@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('Practice Page II', async({browser}) => {
+test('@Web Practice Page II', async({browser}) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
@@ -17,7 +17,7 @@ test.only('Practice Page II', async({browser}) => {
     await expect(page.locator("#displayed-text")).toBeHidden();
 
     await page.locator("#confirmbtn").click();
-    await page.pause();
+    // await page.pause();
 
     //handling popups
     page.on('dialog', dialog => dialog.accept());
