@@ -11,7 +11,7 @@ test('@Web Practice Page II', async({browser}) => {
     // await page.goBack();
     // await page.goForward();
 
-    //handling hiddent items
+    //handling hidden items
     await expect(page.locator("#displayed-text")).toBeVisible();
     await page.locator("#hide-textbox").click();
     await expect(page.locator("#displayed-text")).toBeHidden();
