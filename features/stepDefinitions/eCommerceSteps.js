@@ -1,19 +1,8 @@
 const {Given, When, Then} = require('@cucumber/cucumber');
 const { pageObjectManager } = require("../../pageObjects/pageObjectManager");
-
 const { expect } = require('@playwright/test');
-const playwright = require('@playwright/test');
 
-Given('login to eCommerce application with {string} and {string}', {timeout: 100 * 1000}, async function(username, password){
-    const browser = await playwright.chromium.launch({
-      headless: false
-    });
-    const context = await browser.newContext();
-    page = await context.newPage();
-
-    //world constructor
-    this.pageObjManager = new pageObjectManager(page);
-
+Given('login to eCommerce application with {string} and {string}', {timeout: 100 * 1000}, async function(username, password){ 
     const logPage = this.pageObjManager.getLoginPage();
     await logPage.landOnLoginPage();
     await logPage.validLogin(username, password);

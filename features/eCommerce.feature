@@ -1,6 +1,6 @@
 Feature: ECommerce Validations
 
-@UITest
+@UITest @Regression
 Scenario: Placing the Order
     Given login to eCommerce application with "patyesh123@gmail.com" and "Password@123"
     When added "Zara Coat 3" to Cart
