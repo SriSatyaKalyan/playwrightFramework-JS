@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "regression": "npx playwright test",
-    "webtest": "npx playwright test --grep @Web"
+    "webtest": "npx playwright test --grep @Web",
+    "cucumbertests": "npx cucumber-js --tags '@Regression' --retry 1 --format html:cucumber-report.html"
   },
   "keywords": [],
   "author": "",
